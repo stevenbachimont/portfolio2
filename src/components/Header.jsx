@@ -20,12 +20,12 @@ function Header() {
         <button className='  text-white text-2xl'>Let's Connect <i className="fa-solid fa-arrow-right text-lg  p-[2px] "></i> </button>
       </div>
       <div className="image banner-astronout lg:hidden absolute w-[200px] flex ">
-      <img className='w-96 ast-img' src={logo1} alt="" />
+      <img className='w-96 ast-img rotate-on-hover' src={logo1} alt="" />
 
       </div>
       <div className="image banner-astronout1 lg:hidden absolute w-[300px] flex ">
 
-      <img className='w-96 ast-img' src={logo} alt="" />
+      <img className='w-96 ast-img rotate-on-hover' src={logo} alt="" />
       </div>
 
     </div>
