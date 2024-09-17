@@ -26,7 +26,7 @@ function Skills() {
               }}
               navigation={true}
               modules={[Navigation, Pagination]}
-              className="mySwiper "
+              className="mySwiper"
             >
               <SwiperSlide className="bg-[#171717]">
                 {" "}

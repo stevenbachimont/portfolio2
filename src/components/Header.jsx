@@ -19,7 +19,7 @@ function Header() {
         <p className='text-white py-4 max-w-lg '>Lorem ipsum dolor sit amet consectetur  adipisicing elit. In qui impedit  sunt, est molestiae ullam. Saepe voluptatum ducimus adipisci pariatur. adipisicing elit.  In qui impedit ipsum dolor sit amet consectetur</p>
         <button className='  text-white text-2xl'>Let's Connect <i className="fa-solid fa-arrow-right text-lg  p-[2px] "></i> </button>
       </div>
-      <div className="image banner-astronout lg:hidden absolute w-[300px] flex ">
+      <div className="image banner-astronout lg:hidden absolute w-[200px] flex ">
       <img className='w-96 ast-img' src={logo1} alt="" />
 
       </div>
