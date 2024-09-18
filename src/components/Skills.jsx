@@ -11,7 +11,7 @@ const skills = [
   },
   {
     header: "LANGUAGES",
-    captions: ["nodeJS", "JS", "MySQL", "EXPRESS", "DOCKER"],
+    captions: ["nodeJS", "JavaScript", "MySQL", "EXPRESS", "DOCKER"],
     values: [0.50, 0.85, 0.90, 0.70, 0.90],
   },
   {
