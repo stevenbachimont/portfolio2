@@ -60,11 +60,7 @@ function Navbar() {
               <i className="fa-brands fa-github border-[1px] border-white p-2 rounded-[100%] hover:bg-white hover:text-black"></i>
             </a>
           </div>
-          <div className="btn">
-            <button className="border-[1px] border-white border-solid py-2 px-4 hover:bg-white hover:text-black font-bold">
-              Connect
-            </button>
-          </div>
+
         </nav>
         <i
           onClick={(e) => setDurum(!durum)}

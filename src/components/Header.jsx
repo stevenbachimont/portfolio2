@@ -14,7 +14,8 @@ function Header() {
       <div className="content lg:text-center">
 
         <h1 className='text-black text-5xl font-bold'>Hi! I'm Steven</h1>
-        <p className='text-black py-4 max-w-lg '>Lorem ipsum dolor sit amet consectetur  adipisicing elit. In qui impedit  sunt, est molestiae ullam. Saepe voluptatum ducimus adipisci pariatur. adipisicing elit.  In qui impedit ipsum dolor sit amet consectetur</p>
+        <p className='text-black py-4 max-w-lg '>
+            I'm a web developer with 1 year of experience using ReactJS, Express.js, MySQL and Node.js. I'm learning, TypeScript, NextJS and Docker. Reach out if you'd like to learn more!</p>
       </div>
       <div className="image banner-astronout lg:hidden absolute w-[200px] flex ">
       <img className='w-96 ast-img rotate-on-hover' src={logo1} alt="" />
