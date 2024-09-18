@@ -5,19 +5,19 @@ import "../styles.css";
 
 const skills = [
   {
-    header: "INTERESTS",
-    captions: ["Cooking", "Web", "Mobile", "Design", "AI"],
-    values: [0.10, 0.90, 0.70, 0.80, 0.70],
+    header: "DEPLOIEMENT",
+    captions: ["CLOUD", "DOCKER", "DOCKER-SWARM", "DOCKER-COMPOSE", "GITHUB-ACTION"],
+    values: [0.30, 0.70, 0.40, 0.60, 0.40],
   },
   {
     header: "LANGUAGES",
-    captions: ["nodeJS", "PHP", "JS", "Ruby", "Java"],
-    values: [0.80, 0.85, 0.90, 0.70, 0.90],
+    captions: ["nodeJS", "JS", "MySQL", "EXPRESS", "DOCKER"],
+    values: [0.50, 0.85, 0.90, 0.70, 0.90],
   },
   {
-    header: "MISC",
-    captions: ["Eclipse", "Git", "Rails", "OpenGL", "Linux"],
-    values: [0.85, 0.85, 0.75, 0.60, 0.80],
+    header: "WORKTOOLS",
+    captions: ["MAC", "Git", "WEBSTORM", "FIGMA", "Linux"],
+    values: [0.85, 0.85, 0.75, 0.60, 0.60],
   },
 ];
 
@@ -60,7 +60,7 @@ function Skills() {
         ctx.lineTo(xy.x, xy.y);
 
         xy = getXY(i, 0.37, width, height);
-        ctx.fillText(skill.captions[valueIndex], xy.x, xy.y + 5);
+        ctx.fillText(skill.captions[valueIndex], xy.x -20, xy.y + 5);
         valueIndex++;
         ctx.closePath();
         ctx.fill();
@@ -101,13 +101,13 @@ function Skills() {
           <p className="text-lg py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
-          <div className="flex justify-center items-center space-x-6 my-6">
+          <div className="flex justify-center items-center space-x-20 my-6">
             {skills.map((skill, index) => (
                 <div key={index} className="pentagon">
                   <canvas
                       ref={(el) => (canvasRefs.current[index] = el)}
-                      width={300}
-                      height={300}
+                      width={400}
+                      height={400}
                       className="mx-auto"
                   ></canvas>
                 </div>
