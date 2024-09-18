@@ -62,7 +62,7 @@ function Navbar() {
           </div>
           <div className="btn">
             <button className="border-[1px] border-white border-solid py-2 px-4 hover:bg-white hover:text-black font-bold">
-              Let's Connect
+              Connect
             </button>
           </div>
         </nav>

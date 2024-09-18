@@ -5,7 +5,9 @@ import "swiper/css/navigation";
 import "../styles.css";
 import { Navigation } from "swiper";
 import { Pagination } from "swiper";
-import img from "../assets/images/meter1.svg";
+import img1 from "../assets/images/skills1.png";
+import img2 from "../assets/images/skills2.png";
+import img3 from "../assets/images/skills3.png";
 import bg from "../assets/images/banner-bg.png"
 
 function Skills() {
@@ -31,21 +33,21 @@ function Skills() {
               <SwiperSlide className="bg-[#171717]">
                 {" "}
                 <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
+                  <img src={img1} alt="" />
                   <h1 className="font-bold text-2xl my-2">Web Dev</h1>
                 </div>
               </SwiperSlide>
               <SwiperSlide className=" bg-[#171717]">
                 {" "}
                 <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
+                  <img src={img2} alt="" />
                   <h1 className="font-bold text-2xl my-2">Frontend </h1>
                 </div>
               </SwiperSlide>
               <SwiperSlide className=" bg-[#171717]">
                 {" "}
                 <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
+                  <img src={img3} alt="" />
                   <h1 className="font-bold text-2xl my-2">React.js</h1>
                 </div>
               </SwiperSlide>
@@ -53,14 +55,14 @@ function Skills() {
               <SwiperSlide className=" bg-[#171717]">
                 {" "}
                 <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
+                  <img src={img1} alt="" />
                   <h1 className="font-bold text-2xl my-2">Javascript</h1>
                 </div>
               </SwiperSlide>
               <SwiperSlide className=" bg-[#171717]">
                 {" "}
                 <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
+                  <img src={img2} alt="" />
                   <h1 className="font-bold text-2xl my-2">Tailwind</h1>
                 </div>
               </SwiperSlide>
