@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import bg from "../assets/images/banner-bg.png";
 import "../styles.css";
 
-
 const skills = [
   {
     header: "DEPLOIEMENT",
@@ -93,22 +92,22 @@ function Skills() {
   return (
       <div
           id="skills"
-          className="wrapper h-full bg-no-repeat bg-center bg-cover p-16 lg:p-4"
+          className="wrapper h-full bg-no-repeat bg-center bg-cover p-8 lg:p-16"
           style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="skills-wrapper text-center text-white bg-[#171717] p-10 rounded-[50px] lg:p-2">
-          <h1 className="text-4xl">Skills</h1>
-          <p className="text-lg py-3">
+        <div className="skills-wrapper text-center text-white bg-[#171717] p-10 lg:p-6 rounded-[20px] lg:rounded-[50px]">
+          <h1 className="text-2xl lg:text-4xl">Skills</h1>
+          <p className="text-base lg:text-lg py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
-          <div className="flex justify-center items-center space-x-20 my-6">
+          <div className="flex flex-wrap justify-center items-center space-x-6 lg:space-x-20 my-6">
             {skills.map((skill, index) => (
                 <div key={index} className="pentagon">
                   <canvas
                       ref={(el) => (canvasRefs.current[index] = el)}
                       width={400}
                       height={400}
-                      className="mx-auto"
+                      className="mx-auto sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px]"
                   ></canvas>
                 </div>
             ))}
