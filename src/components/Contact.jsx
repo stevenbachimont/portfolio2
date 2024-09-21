@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/images/contact-img.svg";
+import img from "../assets/images/contact.gif";
 
 function Contact() {
   return (
@@ -7,8 +7,7 @@ function Contact() {
       <div className="contact bg-[linear-gradient(90deg,#b004b0,#38097a);] w-full">
         <div className="wrapper flex justify-center  py-16 gap-52 lg:py-12">
           <div className="imgbox lg:hidden">
-            <img className="w-[550px] h-full" src={img} alt="" />
-          </div>
+            <img className="w-[550px] h-full rounded-[20px]" src={img} alt=""/></div>
           <div className="content-box">
             <h1 className="text-white font-bold text-4xl">Get In Touch</h1>
             <form action="" className="flex flex-col ">

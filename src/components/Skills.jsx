@@ -95,7 +95,7 @@ function Skills() {
           className="wrapper h-full bg-no-repeat bg-center bg-cover p-8 lg:p-16"
           style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="skills-wrapper text-center text-white bg-[#171717] p-10 lg:p-6 rounded-[20px] lg:rounded-[50px]">
+        <div className="skills-wrapper text-center text-white bg-[#171717] bg-opacity-0 p-10 lg:p-6 rounded-[20px] lg:rounded-[50px]">
           <h1 className="text-2xl lg:text-4xl">Skills</h1>
           <p className="text-base lg:text-lg py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
