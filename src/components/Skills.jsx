@@ -28,9 +28,9 @@ function Skills() {
       label: 'Skill Ratings',
       data: skills.length > 0 ? skills.map(skill => skill.rating_rate) : [],
       backgroundColor: 'rgba(179, 181, 198, 0.2)',
-      borderColor: 'rgba(179, 181, 198, 1)',
-      pointBackgroundColor: 'rgba(179, 181, 198, 1)',
-      pointBorderColor: '#fff',
+      borderColor: 'rgb(163,16,202)',
+      pointBackgroundColor: 'rgb(181,18,200)',
+      pointBorderColor: '#c51ad1',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(179, 181, 198, 1)',
     }]
@@ -42,12 +42,12 @@ function Skills() {
         min: 0,
         max: 5,
         ticks: {
+          display: false,
           stepSize: 1,
           color: "rgb(216,174,15)",
             font: {
                 size: 15
             }
-
         },
         angleLines: {
           color: "rgba(83,140,50,0.74)"
@@ -59,6 +59,10 @@ function Skills() {
           }
         }
       }
+    },
+    plugins: {
+      legend: {
+        display: false,
     },
     maintainAspectRatio: false,
   };
