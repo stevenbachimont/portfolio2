@@ -1,81 +1,46 @@
-import React, { useState } from "react";
-import img1 from "../assets/images/project1.jpg";
-import img2 from "../assets/images/project2.jpg";
-import img3 from "../assets/images/project3.jpg";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles.css";
 import ProjectCard from "./ProjectCard";
 
 function Projects() {
   const [durum, setDurum] = useState(1);
+  const [projects, setProjects] = useState({
+    personal: [],
+    group: [],
+    professional: []
+  });
 
-  const projectsperso = [
-    {
-      id: 1,
-      title: "personal project 1",
-      description: "Design & Development",
-      img: img1,
-    },
-    {
-      id: 2,
-      title: "personal project 2",
-      description: "Design & Development",
-      img: img1,
-    },
-    {
-      id: 3,
-      title: "personal project 3",
-      description: "Design & Development",
-      img: img1,
-    },
-  ];
+  useEffect(() => {
+    axios.get("https://api.stevenbachimont.com/api/projects")
+        .then(response => {
+          const categorizedProjects = {
+            personal: [],
+            group: [],
+            professional: []
+          };
 
-  const projectsgroup = [
-    {
-      id: 1,
-      title: "Group project 1",
-      description: "Design & Development",
-      img: img2,
-    },
-    {
-      id: 2,
-      title: "Group project 2",
-      description: "Design & Development",
-      img: img2,
-    },
-    {
-      id: 3,
-      title: "Group project 3",
-      description: "Design & Development",
-      img: img2,
-    },
-  ];
+          response.data.forEach(project => {
+            if (project.category === "personal projects") {
+              categorizedProjects.personal.push(project);
+            } else if (project.category === "group projects") {
+              categorizedProjects.group.push(project);
+            } else if (project.category === "professional projects") {
+              categorizedProjects.professional.push(project);
+            }
+          });
 
-  const projectspro = [
-    {
-      id: 1,
-      title: "Professional project 1",
-      description: "Design & Development",
-      img: img3,
-    },
-    {
-      id: 2,
-      title: "Professional project 2",
-      description: "Design & Development",
-      img: img3,
-    },
-    {
-      id: 3,
-      title: "Professional project 3",
-      description: "Design & Development",
-      img: img3,
-    },
-  ];
+          setProjects(categorizedProjects);
+        })
+        .catch(error => {
+          console.error("Error fetching projects:", error);
+        });
+  }, []);
 
   const getCurrentProjects = () => {
-    if (durum === 1) return projectsperso;
-    if (durum === 2) return projectsgroup;
-    if (durum === 3) return projectspro;
+    if (durum === 1) return projects.personal;
+    if (durum === 2) return projects.group;
+    if (durum === 3) return projects.professional;
   };
 
   return (
