@@ -62,8 +62,7 @@ function Skills() {
     },
     plugins: {
       legend: {
-        display: false, // Masque la légende "Skill Ratings"
-      }
+        display: false,
     },
     maintainAspectRatio: false,
   };
