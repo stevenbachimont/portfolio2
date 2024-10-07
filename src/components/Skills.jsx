@@ -45,7 +45,7 @@ function Skills() {
           stepSize: 1,
           color: "rgb(216,174,15)",
             font: {
-                size: 25
+                size: 15
             }
 
         },
@@ -55,7 +55,7 @@ function Skills() {
         pointLabels: {
           color: "#ffcc00",
           font: {
-            size: 25
+            size: 15
           }
         }
       }
@@ -67,7 +67,7 @@ function Skills() {
   return (
       <div
           id="skills"
-          className="wrapper h-full bg-no-repeat bg-center bg-cover p-8 lg:p-16"
+          className="wrapper h-full bg-no-repeat bg-center bg-cover p-20 lg:p-16"
           style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="skills-wrapper text-center text-white bg-[#171717] bg-opacity-0 p-10 lg:p-6 rounded-[20px] lg:rounded-[50px]">
@@ -76,7 +76,7 @@ function Skills() {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
           {skills.length > 0 ? (
-              <div className="flex justify-center items-center my-6" style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <div className="flex justify-center items-center my-6" style={{ maxWidth: '800px',height: '400px', margin: '0 auto' }}>
                 <Radar data={data} options={options} />
               </div>
           ) : (
