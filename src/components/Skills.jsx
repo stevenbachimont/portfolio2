@@ -5,7 +5,7 @@ import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler,
 import bg from "../assets/images/banner-bg.png";
 import "../styles.css";
 
-// Register the required components
+
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 function Skills() {
@@ -43,26 +43,19 @@ function Skills() {
         max: 5,
         ticks: {
           display: false,
-          stepSize: 1,
-          color: "rgb(216,174,15)",
-            font: {
-                size: 15
-            }
         },
         angleLines: {
-          color: "rgba(83,140,50,0.74)"
+          color: "rgba(255, 255, 255, 0.2)"
         },
         pointLabels: {
-          color: "#ffcc00",
-          font: {
-            size: 15
-          }
+          color: "#ffcc00"
         }
       }
     },
     plugins: {
       legend: {
         display: false,
+      }
     },
     maintainAspectRatio: false,
   };
