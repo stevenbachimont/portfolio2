@@ -1,93 +1,68 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Radar } from "react-chartjs-2";
+import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 import bg from "../assets/images/banner-bg.png";
 import "../styles.css";
 
-const skills = [
-  {
-    header: "DEPLOIEMENT",
-    captions: ["CLOUD", "DOCKER", "DOCKER-SWARM", "DOCKER-COMPOSE", "GITHUB-ACTION"],
-    values: [0.30, 0.70, 0.40, 0.60, 0.40],
-  },
-  {
-    header: "LANGUAGES",
-    captions: ["nodeJS", "JavaScript", "MySQL", "EXPRESS", "DOCKER"],
-    values: [0.50, 0.85, 0.90, 0.70, 0.90],
-  },
-  {
-    header: "WORKTOOLS",
-    captions: ["MAC", "Git", "WEBSTORM", "FIGMA", "Linux"],
-    values: [0.85, 0.85, 0.75, 0.60, 0.60],
-  },
-];
-
-const sides = 5;
-const theta = (2 * Math.PI) / sides;
-const radOffset = Math.PI / 2;
-
-function getXY(i, radius, width, height) {
-  return {
-    x: Math.cos(radOffset + theta * i) * radius * width + width / 2,
-    y: Math.sin(radOffset + theta * i) * radius * height + height / 2,
-  };
-}
+// Register the required components
+ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 function Skills() {
-  const canvasRefs = useRef([]);
+  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    skills.forEach((skill, pentagonIndex) => {
-      const canvas = canvasRefs.current[pentagonIndex];
-      const ctx = canvas.getContext("2d");
-
-      const width = canvas.width;
-      const height = canvas.height;
-      let valueIndex = 0;
-      const hue = (25 + pentagonIndex * 255 / skills.length) % 255;
-
-      for (let i = 0; i < sides; i++) {
-        ctx.beginPath();
-        let xy = getXY(i, 0.3, width, height);
-        const colorJitter = 25 + theta * i * 2;
-        const color = `hsl(${hue}, 100%, ${colorJitter}%)`;
-
-        ctx.fillStyle = color;
-        ctx.strokeStyle = color;
-        ctx.moveTo(0.5 * width, 0.5 * height);
-        ctx.lineTo(xy.x, xy.y);
-
-        xy = getXY(i + 1, 0.3, width, height);
-        ctx.lineTo(xy.x, xy.y);
-
-        xy = getXY(i, 0.37, width, height);
-        ctx.fillText(skill.captions[valueIndex], xy.x -20, xy.y + 5);
-        valueIndex++;
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-      }
-
-      valueIndex = 0;
-      ctx.beginPath();
-      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.3)";
-      ctx.lineWidth = 5;
-
-      let value = skill.values[valueIndex];
-      let xy = getXY(0, value * 0.3, width, height);
-      ctx.moveTo(xy.x, xy.y);
-
-      for (let i = 0; i < sides; i++) {
-        value = skill.values[valueIndex];
-        xy = getXY(i, value * 0.3, width, height);
-        ctx.lineTo(xy.x, xy.y);
-        valueIndex++;
-      }
-
-      ctx.closePath();
-      ctx.stroke();
-      ctx.fill();
-    });
+    axios.get("https://api.stevenbachimont.com/api/projects")
+        .then(response => {
+          const skillsData = response.data.filter(project => project.category === "skills");
+          setSkills(skillsData);
+        })
+        .catch(error => {
+          console.error("Error fetching skills:", error);
+        });
   }, []);
+
+  const data = {
+    labels: skills.length > 0 ? skills.map(skill => skill.title) : [],
+    datasets: [{
+      label: 'Skill Ratings',
+      data: skills.length > 0 ? skills.map(skill => skill.rating_rate) : [],
+      backgroundColor: 'rgba(179, 181, 198, 0.2)',
+      borderColor: 'rgba(179, 181, 198, 1)',
+      pointBackgroundColor: 'rgba(179, 181, 198, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(179, 181, 198, 1)',
+    }]
+  };
+
+  const options = {
+    scales: {
+      r: {
+        min: 0,
+        max: 5,
+        ticks: {
+          stepSize: 1,
+          color: "rgb(216,174,15)",
+            font: {
+                size: 25
+            }
+
+        },
+        angleLines: {
+          color: "rgba(83,140,50,0.74)"
+        },
+        pointLabels: {
+          color: "#ffcc00",
+          font: {
+            size: 25
+          }
+        }
+      }
+    },
+    maintainAspectRatio: false,
+  };
+
 
   return (
       <div
@@ -100,18 +75,13 @@ function Skills() {
           <p className="text-base lg:text-lg py-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
-          <div className="flex flex-wrap justify-center items-center space-x-6 lg:space-x-20 my-6">
-            {skills.map((skill, index) => (
-                <div key={index} className="pentagon">
-                  <canvas
-                      ref={(el) => (canvasRefs.current[index] = el)}
-                      width={400}
-                      height={400}
-                      className="mx-auto sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px]"
-                  ></canvas>
-                </div>
-            ))}
-          </div>
+          {skills.length > 0 ? (
+              <div className="flex justify-center items-center my-6" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                <Radar data={data} options={options} />
+              </div>
+          ) : (
+              <p className="text-lg py-4">Loading skills...</p>
+          )}
         </div>
       </div>
   );
